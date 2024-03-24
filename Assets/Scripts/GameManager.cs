@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum Turn { Player, EnemyRed, EnemyBlue }; // Enum per i turni del gioco
+    public enum Turn { Player, EnemyRed, EnemyBlue, Crossbow };
     public Turn currentTurn = Turn.Player; // Turno attuale
 
     public PlayerMovement playerMovement; // Riferimento allo script del movimento del player
     public RedEnemyMovement enemyRedMovement; // Riferimento allo script del movimento del nemico rosso
     public BlueEnemyMovement enemyBlueMovement; // Riferimento allo script del movimento del nemico blu
+    public Crossbow Crossbow; // Riferimento allo script della Crossbow
 
     // Metodo per passare al turno successivo
     public void NextTurn()
@@ -25,8 +26,14 @@ public class GameManager : MonoBehaviour
                 enemyBlueMovement.MoveEnemy(); // Movimento nemico blu
                 break;
             case Turn.EnemyBlue:
+                currentTurn = Turn.Crossbow; // Passa al turno della Crossbow
+                Debug.Log("È il turno della Crossbow.");
+                Crossbow.Shoot();
+                // Implementa qui il movimento della Crossbow
+                break;
+            case Turn.Crossbow:
                 currentTurn = Turn.Player; // Passa al turno del player
-                Debug.Log("È il turno del player.");
+                Debug.Log("È il turno del giocatore.");
                 break;
             default:
                 break;
@@ -35,6 +42,7 @@ public class GameManager : MonoBehaviour
         // Resetta i movimenti del player per il nuovo turno
         playerMovement.ResetMoves();
     }
+
 
     void Update()
     {

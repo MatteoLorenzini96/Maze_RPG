@@ -6,11 +6,12 @@ TagManager:
   tags:
   - RedWall
   - BlueWall
+  - Crossbow
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullet
   - Water
   - UI
   - 

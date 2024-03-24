@@ -57,6 +57,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
             // Posiziona l'elemento al centro dello slot
             rectTransform.anchoredPosition = Vector2.zero;
+
+            // Debug.Log del turnOrder quando un elemento viene lasciato dentro un ItemSlot
+            Debug.Log("Turn Order for " + slotRectTransform.name + ": " + slotRectTransform.GetComponent<ItemSlot>().turnOrder);
+
         }
         else
         {

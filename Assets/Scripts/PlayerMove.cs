@@ -1,21 +1,27 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using static GameManager;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveDistance = 1f; // Distanza di movimento del player
-    
-    private Stack<Vector3> previousPositions = new Stack<Vector3>(); // Stack per tenere traccia delle posizioni precedenti
-   
-    private int movesRemaining = 3; // Numero di movimenti rimanenti per il turno
 
-    public GameManager gameManager;
+    private GameManager gameManager;
+    private int movesRemaining = 3; // Numero di movimenti rimanenti per il turno
+    private Stack<Vector3> previousPositions = new Stack<Vector3>(); // Stack per tenere traccia delle posizioni precedenti
+
+    private void Start()
+    {
+        // Trova il GameManager nella scena
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     void Update()
     {
-        if (gameManager.currentTurn == GameManager.Turn.Player)
+        // Controlla se è il turno del giocatore nel GameManager
+        if (gameManager.currentTurn == Turn.Player)
         {
-            // Gestiamo il movimento del player quando un tasto viene premuto
+            // Gestisce il movimento del player quando un tasto viene premuto
             if (Input.GetKeyDown(KeyCode.W))
             {
                 TryMovePlayer(Vector3.up);
@@ -72,6 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
                 // Riduce il numero di movimenti rimanenti
                 movesRemaining--;
+
+                // Aggiorna il UI per mostrare i movimenti rimanenti
+                // (Se necessario)
             }
         }
     }
@@ -87,6 +96,9 @@ public class PlayerMovement : MonoBehaviour
 
             // Ripristina il numero di movimenti rimanenti
             movesRemaining++;
+
+            // Aggiorna il UI per mostrare i movimenti rimanenti
+            // (Se necessario)
         }
     }
     public void ResetMoves()
@@ -95,4 +107,3 @@ public class PlayerMovement : MonoBehaviour
         previousPositions.Clear();
     }
 }
-
