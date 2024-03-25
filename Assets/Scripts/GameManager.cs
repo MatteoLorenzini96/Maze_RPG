@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         // Controlla se il tasto per passare al turno successivo è stato premuto
         if (Input.GetKeyDown(KeyCode.Space)) // Puoi cambiare KeyCode a tuo piacimento
         {
-            NextTurn(); // Chiama il metodo NextTurn() quando il tasto è premuto
+            NextTurn();
         }
     }
 

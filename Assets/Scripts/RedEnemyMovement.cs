@@ -24,8 +24,6 @@ public class RedEnemyMovement : MonoBehaviour
                 return;
             }
         }
-
-        // Aggiornamento del movimento del nemico
     }
 
     // Metodo per il movimento del nemico

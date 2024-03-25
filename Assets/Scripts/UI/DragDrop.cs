@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform itemSlot;
@@ -68,11 +68,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             rectTransform.SetParent(originalParent, false); // Ripristina il parentesco al parente originale
             rectTransform.localPosition = originalPosition; // Usa la posizione locale originale
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        // Non è necessario memorizzare la posizione iniziale qui
     }
 
     private RectTransform FindSlotUnderMouse(Vector2 mousePosition)

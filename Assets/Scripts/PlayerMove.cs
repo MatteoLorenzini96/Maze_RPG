@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
         // Controlla se è il turno del giocatore nel GameManager
         if (gameManager.currentTurn == Turn.Player)
         {
-            // Gestisce il movimento del player quando un tasto viene premuto
             if (Input.GetKeyDown(KeyCode.W))
             {
                 TryMovePlayer(Vector3.up);
@@ -78,9 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
                 // Riduce il numero di movimenti rimanenti
                 movesRemaining--;
-
-                // Aggiorna il UI per mostrare i movimenti rimanenti
-                // (Se necessario)
             }
         }
     }
@@ -96,9 +92,6 @@ public class PlayerMovement : MonoBehaviour
 
             // Ripristina il numero di movimenti rimanenti
             movesRemaining++;
-
-            // Aggiorna il UI per mostrare i movimenti rimanenti
-            // (Se necessario)
         }
     }
     public void ResetMoves()
