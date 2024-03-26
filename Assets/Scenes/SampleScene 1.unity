@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 80524586}
   - component: {fileID: 80524588}
   - component: {fileID: 80524589}
+  - component: {fileID: 80524590}
   m_Layer: 5
   m_Name: RedWall
   m_TagString: Untagged
@@ -392,6 +393,19 @@ MonoBehaviour:
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
   referenceParent: {fileID: 0}
+--- !u!114 &80524590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80524582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493150afe1f9d3848ad675b6a42a3ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnIdentity: 2
 --- !u!1 &110194343
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 110194344}
+  - component: {fileID: 110194345}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -428,9 +443,26 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360.6316, y: -7.686299}
+  m_AnchoredPosition: {x: -360.6316, y: 56.2}
   m_SizeDelta: {x: 60.5368, y: 248.6812}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &110194345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110194343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbd0a8ee5ec86b49a3697278697c416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots:
+  - {fileID: 1802280968}
+  - {fileID: 51516668}
+  - {fileID: 1878608253}
+  - {fileID: 2063108525}
 --- !u!1 &121185490
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +512,8 @@ MonoBehaviour:
   enemyRedMovement: {fileID: 1423839493}
   enemyBlueMovement: {fileID: 1029912118}
   Crossbow: {fileID: 340293561}
+  turns: 
+  actualTurnIndex: 0
 --- !u!1 &158574135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1235,7 @@ GameObject:
   - component: {fileID: 927991757}
   - component: {fileID: 927991759}
   - component: {fileID: 927991760}
+  - component: {fileID: 927991761}
   m_Layer: 5
   m_Name: BlueWall
   m_TagString: Untagged
@@ -1292,6 +1327,19 @@ MonoBehaviour:
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
   referenceParent: {fileID: 0}
+--- !u!114 &927991761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927991753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493150afe1f9d3848ad675b6a42a3ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnIdentity: 3
 --- !u!1 &1029912113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1537,7 @@ GameObject:
   - component: {fileID: 1123561220}
   - component: {fileID: 1123561222}
   - component: {fileID: 1123561223}
+  - component: {fileID: 1123561224}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -1580,6 +1629,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1123561224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123561216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493150afe1f9d3848ad675b6a42a3ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnIdentity: 1
 --- !u!1 &1137573157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -321.80002, y: -147.1}
+  m_AnchoredPosition: {x: -321.80002, y: -83.213715}
   m_SizeDelta: {x: 139.4506, y: 23.157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137573159
@@ -1662,7 +1724,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1137573160}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 110194345}
+        m_TargetAssemblyTypeName: ItemSlotHandler, Assembly-CSharp
+        m_MethodName: EndPlanning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1137573160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,7 +1895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.3, y: -168.70001}
+  m_AnchoredPosition: {x: -353.23, y: -122}
   m_SizeDelta: {x: 71.1735, y: 17.4053}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198330334
@@ -1867,7 +1941,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1198330335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 121185492}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: NextTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1198330335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,7 +2612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -292.3294, y: -11.676}
+  m_AnchoredPosition: {x: -292.3294, y: 52.21029}
   m_SizeDelta: {x: 50.6231, y: 240.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1666193730
@@ -3323,6 +3409,7 @@ GameObject:
   - component: {fileID: 2083841097}
   - component: {fileID: 2083841099}
   - component: {fileID: 2083841100}
+  - component: {fileID: 2083841101}
   m_Layer: 5
   m_Name: Crossbow
   m_TagString: Untagged
@@ -3414,6 +3501,19 @@ MonoBehaviour:
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
   referenceParent: {fileID: 0}
+--- !u!114 &2083841101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083841093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493150afe1f9d3848ad675b6a42a3ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnIdentity: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

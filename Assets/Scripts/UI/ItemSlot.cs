@@ -13,4 +13,16 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         }
     }
+
+    public Turn GetTurnIdentity()
+    {
+        var urn = GetComponentInChildren<TurnIdentity>();
+
+        if (urn != null)
+        {
+            return urn.turnIdentity;
+        }
+
+        return Turn.None;
+    }
 }
