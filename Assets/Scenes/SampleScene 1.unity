@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 80524589}
   - component: {fileID: 80524590}
   m_Layer: 5
-  m_Name: RedWall
+  m_Name: RRedWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
-  referenceParent: {fileID: 0}
+  referenceParent: {fileID: 1660870062}
 --- !u!114 &80524590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 927991760}
   - component: {fileID: 927991761}
   m_Layer: 5
-  m_Name: BlueWall
+  m_Name: RBlueWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
-  referenceParent: {fileID: 0}
+  referenceParent: {fileID: 1660870062}
 --- !u!114 &927991761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 1123561223}
   - component: {fileID: 1123561224}
   m_Layer: 5
-  m_Name: Player
+  m_Name: RPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
-  referenceParent: {fileID: 0}
+  referenceParent: {fileID: 1660870062}
 --- !u!225 &1123561223
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3411,7 +3411,7 @@ GameObject:
   - component: {fileID: 2083841100}
   - component: {fileID: 2083841101}
   m_Layer: 5
-  m_Name: Crossbow
+  m_Name: RCrossbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3500,7 +3500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1477688936}
   itemSlot: {fileID: 110194344}
-  referenceParent: {fileID: 0}
+  referenceParent: {fileID: 1660870062}
 --- !u!114 &2083841101
 MonoBehaviour:
   m_ObjectHideFlags: 0
