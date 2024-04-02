@@ -5,7 +5,6 @@ public enum Turn { None, Player, EnemyRed, EnemyBlue, Crossbow };
 
 public class GameManager : MonoBehaviour
 {
-    
     public Turn currentTurn = Turn.Player; // Turno attuale
 
     public PlayerMovement playerMovement; // Riferimento allo script del movimento del player
@@ -50,21 +49,32 @@ public class GameManager : MonoBehaviour
         actualTurnIndex++;
         if (actualTurnIndex >= turns.Count)
         {
-            Debug.Log("Da qua riparte il planning");
+            StartPlanning();
         }
 
         // Resetta i movimenti del player per il nuovo turno
         playerMovement.ResetMoves();
     }
 
-
-    void Update()
+    // Metodo per iniziare la fase di pianificazione
+    public void StartPlanning()
     {
-        // Controlla se il tasto per passare al turno successivo è stato premuto
-        if (Input.GetKeyDown(KeyCode.Space)) // Puoi cambiare KeyCode a tuo piacimento
+        // Resetta la posizione degli oggetti con lo script DragDrop
+        DragDrop[] dragDropItems = FindObjectsOfType<DragDrop>();
+        foreach (DragDrop item in dragDropItems)
         {
-            NextTurn();
+            item.ResetPosition();
         }
+
+        // Resetta il turno e la lista
+        actualTurnIndex = 0;
+        currentTurn = Turn.None;
+        turns.Clear();
+    }
+
+    private void Start()
+    {
+        StartPlanning();
     }
 
    public void SetTurns(List<Turn> newTurns)
@@ -92,6 +102,4 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
-
 }

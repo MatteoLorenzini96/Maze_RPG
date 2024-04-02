@@ -70,6 +70,12 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         }
     }
 
+    public void ResetPosition()
+    {
+        rectTransform.localPosition = originalPosition;
+        rectTransform.SetParent(originalParent, false);
+    }
+
     private RectTransform FindSlotUnderMouse(Vector2 mousePosition)
     {
         // Ottieni tutti gli item slot attivi nel canvas
