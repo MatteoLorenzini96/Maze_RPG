@@ -4,11 +4,21 @@ using UnityEngine.SceneManagement;
 public class NextSceneLoader : MonoBehaviour
 {
     public string nextSceneName; // Il nome della scena successiva che si desidera caricare
+    public Collider2D playerCollider; // Il collider del giocatore
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        // Verifica se il collider che ha causato la collisione è il giocatore
-        if (other.CompareTag("Player"))
+        // Assicurati che il collider del giocatore non sia null
+        if (playerCollider == null)
+        {
+            Debug.LogError("Player collider not assigned in NextSceneLoader.");
+        }
+    }
+
+    private void Update()
+    {
+        // Verifica se il collider del giocatore si trova all'interno dell'area
+        if (playerCollider.bounds.Contains(transform.position))
         {
             // Carica la scena successiva
             SceneManager.LoadScene(nextSceneName);
