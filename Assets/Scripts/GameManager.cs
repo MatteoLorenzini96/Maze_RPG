@@ -1,47 +1,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Turn { None, Player, EnemyRed, EnemyBlue, Crossbow };
+public enum Turn { None, Player, EnemyRed, EnemyBlue, Crossbow, Planning };
 
 public class GameManager : MonoBehaviour
 {
-    public Turn currentTurn = Turn.Player; // Turno attuale
+    public Turn currentTurn = Turn.Player;
 
-    public PlayerMovement playerMovement; // Riferimento allo script del movimento del player
-    public RedEnemyMovement enemyRedMovement; // Riferimento allo script del movimento del nemico rosso
-    public BlueEnemyMovement enemyBlueMovement; // Riferimento allo script del movimento del nemico blu
-    public Crossbow Crossbow; // Riferimento allo script della Crossbow
+    public PlayerMovement playerMovement; 
+    public RedEnemyMovement enemyRedMovement; 
+    public BlueEnemyMovement enemyBlueMovement; 
+    public Crossbow Crossbow; 
 
    [SerializeField] private List<Turn> turns = new List<Turn>();
 
    [SerializeField] private int actualTurnIndex;
 
-    // Metodo per passare al turno successivo
     public void NextTurn()
     {
         currentTurn = turns[actualTurnIndex];
         switch (currentTurn)
         {
             case Turn.EnemyRed:
-                //currentTurn = Turn.EnemyRed; // Passa al turno del nemico rosso
                 Debug.Log("È il turno del nemico rosso.");
-                enemyRedMovement.MoveEnemy(); // Movimento nemico rosso
+                enemyRedMovement.MoveEnemy();
                 break;
             case Turn.EnemyBlue:
-                //currentTurn = Turn.EnemyBlue; // Passa al turno del nemico blu
                 Debug.Log("È il turno del nemico blu.");
-                enemyBlueMovement.MoveEnemy(); // Movimento nemico blu
+                enemyBlueMovement.MoveEnemy();
                 break;
             case Turn.Crossbow:
-                //currentTurn = Turn.Crossbow; // Passa al turno della Crossbow
                 Debug.Log("È il turno della Crossbow.");
                 Crossbow.Shoot();
-                // Implementa qui il movimento della Crossbow
                 break;
             case Turn.Player:
-                //currentTurn = Turn.Player; // Passa al turno del player
                 Debug.Log("È il turno del giocatore.");
                 break;
+            case Turn.Planning:
+                StartPlanning();
+                EnableDragDropScripts();
+                return;
             default:
                 break;
         }
@@ -49,24 +47,40 @@ public class GameManager : MonoBehaviour
         actualTurnIndex++;
         if (actualTurnIndex >= turns.Count)
         {
-            StartPlanning();
+            turns.Add(Turn.Planning);
         }
 
-        // Resetta i movimenti del player per il nuovo turno
         playerMovement.ResetMoves();
+
+        DisableDragDropScripts();
     }
 
-    // Metodo per iniziare la fase di pianificazione
+    private void DisableDragDropScripts()
+    {
+        DragDrop[] dragDropItems = FindObjectsOfType<DragDrop>();
+        foreach (DragDrop item in dragDropItems)
+        {
+            item.enabled = false;
+        }
+    }
+
+    private void EnableDragDropScripts()
+    {
+        DragDrop[] dragDropItems = FindObjectsOfType<DragDrop>();
+        foreach (DragDrop item in dragDropItems)
+        {
+            item.enabled = true;
+        }
+    }
+
     public void StartPlanning()
     {
-        // Resetta la posizione degli oggetti con lo script DragDrop
         DragDrop[] dragDropItems = FindObjectsOfType<DragDrop>();
         foreach (DragDrop item in dragDropItems)
         {
             item.ResetPosition();
         }
 
-        // Resetta il turno e la lista
         actualTurnIndex = 0;
         currentTurn = Turn.None;
         turns.Clear();
@@ -84,7 +98,6 @@ public class GameManager : MonoBehaviour
         actualTurnIndex = 0;
     }
 
-    // Implementa il singleton pattern per GameManager
     private static GameManager _instance;
     public static GameManager Instance
     {

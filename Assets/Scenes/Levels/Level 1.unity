@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5365590883569584937, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
       propertyPath: slots.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5365590883569584937, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
       propertyPath: slots.Array.data[1]
