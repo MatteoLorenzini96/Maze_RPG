@@ -28,21 +28,27 @@ public class BlueEnemyMovement : MonoBehaviour
         // Aggiornamento del movimento del nemico
     }
 
-    // Metodo per il movimento del nemico
     public void MoveEnemy()
     {
         // Verifica se il nemico si trova nella posizione iniziale
         if (transform.position == initialPosition)
         {
-            // Se si trova nella posizione iniziale, muovi il nemico di 1 unità a destra rispetto alla sua posizione attuale
+            // Ruota l'immagine del nemico di 180°
+            transform.Rotate(180f, 0f, 0f);
+
+            // Se si trova nella posizione iniziale, muovi il nemico di 1 unità verso l'alto rispetto alla sua posizione attuale
             transform.position += Vector3.up * 1;
         }
         else
         {
+            // Ruota l'immagine del nemico di 180°
+            transform.Rotate(180f, 0f, 0f);
+
             // Se non si trova nella posizione iniziale, riporta il nemico alla posizione iniziale
             transform.position = initialPosition;
         }
     }
+
 
     // Metodo per far ritornare il nemico alla posizione iniziale
     public void ResetPosition()
