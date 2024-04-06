@@ -31,17 +31,11 @@ public class RedEnemyMovement : MonoBehaviour
         // Verifica se il nemico si trova nella posizione iniziale
         if (transform.position == initialPosition)
         {
-            // Ruota l'immagine del nemico di 180°
-            transform.Rotate(0f, 180f, 0f);
-
             // Se si trova nella posizione iniziale, muovi il nemico di 1 unità a destra rispetto alla sua posizione attuale
             transform.position += Vector3.right * 1;
         }
         else
         {
-            // Ruota l'immagine del nemico di 180°
-            transform.Rotate(0f, 180f, 0f);
-
             // Se non si trova nella posizione iniziale, riporta il nemico alla posizione iniziale
             transform.position = initialPosition;
         }
