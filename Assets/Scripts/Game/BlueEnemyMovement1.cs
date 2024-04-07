@@ -35,6 +35,9 @@ public class BlueEnemyMovement : MonoBehaviour
         {
             // Se si trova nella posizione iniziale, muovi il nemico di 1 unità verso l'alto rispetto alla sua posizione attuale
             transform.position += Vector3.up * 1;
+
+            // Invoca la funzione NextTurn del GameManager dopo 2 secondi
+            Invoke("CallNextTurn", 1f);
         }
         else
         {
@@ -43,11 +46,25 @@ public class BlueEnemyMovement : MonoBehaviour
         }
     }
 
-
     // Metodo per far ritornare il nemico alla posizione iniziale
     public void ResetPosition()
     {
         transform.position = initialPosition; // Riporta il nemico alla posizione iniziale
     }
-}
 
+    // Metodo per chiamare la funzione NextTurn del GameManager
+    private void CallNextTurn()
+    {
+        // Assicurati che il GameManager esista nella scena
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            // Chiama la funzione NextTurn del GameManager
+            gameManager.NextTurn();
+        }
+        else
+        {
+            Debug.LogError("GameManager non trovato nella scena.");
+        }
+    }
+}

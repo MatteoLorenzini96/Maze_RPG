@@ -4092,9 +4092,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 340293561}
     - target: {fileID: 2265297194104323934, guid: 5a656ac745f9f6c4fa617c240f496a12, type: 3}
+      propertyPath: PassButton
+      value: 
+      objectReference: {fileID: 5853233456537434181}
+    - target: {fileID: 2265297194104323934, guid: 5a656ac745f9f6c4fa617c240f496a12, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 2002334192}
+    - target: {fileID: 2265297194104323934, guid: 5a656ac745f9f6c4fa617c240f496a12, type: 3}
+      propertyPath: SaveOrderButton
+      value: 
+      objectReference: {fileID: 5853233456537434180}
     - target: {fileID: 2265297194104323934, guid: 5a656ac745f9f6c4fa617c240f496a12, type: 3}
       propertyPath: enemyRedMovement
       value: 
@@ -4357,6 +4365,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
+--- !u!114 &5853233456537434180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9132936607118637704, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
+  m_PrefabInstance: {fileID: 5853233456537434179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5853233456537434181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4635228332425262443, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
+  m_PrefabInstance: {fileID: 5853233456537434179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6108683773278369905
 PrefabInstance:
   m_ObjectHideFlags: 0

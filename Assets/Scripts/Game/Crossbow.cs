@@ -21,6 +21,24 @@ public class Crossbow : MonoBehaviour
         Rigidbody2D rb = currentBullet.GetComponent<Rigidbody2D>();
         rb.velocity = muzzle.right.normalized * bulletSpeed; // Imposta la velocità del proiettile in linea retta
         Destroy(currentBullet, bulletLifetime); // Cancella il proiettile dopo il tempo specificato
+
+        // Invoca la funzione NextTurn del GameManager dopo 2 secondi
+        Invoke("CallNextTurn", 1f);
+    }
+
+    // Metodo per chiamare la funzione NextTurn del GameManager
+    private void CallNextTurn()
+    {
+        // Assicurati che il GameManager esista nella scena
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            // Chiama la funzione NextTurn del GameManager
+            gameManager.NextTurn();
+        }
+        else
+        {
+            Debug.LogError("GameManager non trovato nella scena.");
+        }
     }
 }
-

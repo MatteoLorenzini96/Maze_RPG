@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Turn { None, Player, EnemyRed, EnemyBlue, Crossbow, Planning };
 
@@ -7,17 +8,20 @@ public class GameManager : MonoBehaviour
 {
     public Turn currentTurn = Turn.Player;
 
-    public PlayerMovement playerMovement; 
-    public RedEnemyMovement enemyRedMovement; 
-    public BlueEnemyMovement enemyBlueMovement; 
-    public Crossbow Crossbow; 
+    public PlayerMovement playerMovement;
+    public RedEnemyMovement enemyRedMovement;
+    public BlueEnemyMovement enemyBlueMovement;
+    public Crossbow crossbow;
 
-   [SerializeField] private List<Turn> turns = new List<Turn>();
+    [SerializeField] private List<Turn> turns = new List<Turn>();
+    [SerializeField] private int actualTurnIndex;
 
-   [SerializeField] private int actualTurnIndex;
+    public Button SaveOrderButton; // Riferimento al bottone da disabilitare
+    public Button PassButton; // Riferimento al bottone da disabilitare
 
     public void NextTurn()
     {
+        SaveOrderButton.interactable = false; // Disabilita il bottone
         currentTurn = turns[actualTurnIndex];
         switch (currentTurn)
         {
@@ -31,7 +35,7 @@ public class GameManager : MonoBehaviour
                 break;
             case Turn.Crossbow:
                 Debug.Log("È il turno della Crossbow.");
-                Crossbow.Shoot();
+                crossbow.Shoot();
                 break;
             case Turn.Player:
                 Debug.Log("È il turno del giocatore.");
@@ -84,6 +88,8 @@ public class GameManager : MonoBehaviour
         actualTurnIndex = 0;
         currentTurn = Turn.None;
         turns.Clear();
+        SaveOrderButton.interactable = true; // Abilita il bottone 
+        PassButton.interactable = false; // Abilita il bottone
     }
 
     private void Start()
@@ -91,7 +97,7 @@ public class GameManager : MonoBehaviour
         StartPlanning();
     }
 
-   public void SetTurns(List<Turn> newTurns)
+    public void SetTurns(List<Turn> newTurns)
     {
         turns = newTurns;
 

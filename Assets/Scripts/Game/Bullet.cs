@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
         // Controlla se l'oggetto con cui si è verificata la collisione è il Player
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Se sì, distrugge il Player
+            Debug.Log("Player Colpito");
             Destroy(collision.gameObject);
 
             // Ricarica la scena dopo un breve ritardo
