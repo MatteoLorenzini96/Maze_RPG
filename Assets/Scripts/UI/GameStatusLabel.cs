@@ -12,29 +12,28 @@ public class GameStatusLabel : MonoBehaviour
 
     private void Update()
     {
-        // Ottieni il GameManager
         GameManager gameManager = GameManager.Instance;
 
         // Controlla lo stato del gioco e aggiorna il testo di conseguenza
         switch (gameManager.currentTurn)
         {
             case Turn.None:
-                statusText.text = "Fase di planning";
+                statusText.text = "Planning";
                 break;
             case Turn.Player:
-                statusText.text = "Turno del giocatore";
+                statusText.text = "Player Turn";
                 break;
             case Turn.EnemyRed:
-                statusText.text = "Turno del rosso";
+                statusText.text = "Red Turn";
                 break;
             case Turn.EnemyBlue:
-                statusText.text = "Turno del blu";
+                statusText.text = "Blue Turn";
                 break;
             case Turn.Crossbow:
-                statusText.text = "Turno della balestra";
+                statusText.text = "Crossbow Turn";
                 break;
             default:
-                statusText.text = "Stato non valido";
+                statusText.text = "Invalid text";
                 break;
         }
     }

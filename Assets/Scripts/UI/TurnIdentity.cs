@@ -7,4 +7,3 @@ public class TurnIdentity : MonoBehaviour
 {
     public Turn turnIdentity;
 }
-

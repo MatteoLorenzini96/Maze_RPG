@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemSlotHandler : MonoBehaviour
 {
     public UnityEngine.UI.Button PassButton;
     public UnityEngine.UI.Button SaveOrderButton;
+    public TextMeshProUGUI infoText; // Riferimento all'elemento TextMesh Pro
 
     public List<ItemSlot> slots;
     public Transform references;
@@ -21,6 +23,7 @@ public class ItemSlotHandler : MonoBehaviour
         else
         {
             Debug.LogWarning("Cannot end planning: References object still has child objects.");
+            StartCoroutine(DisplayInfoForSeconds("All elements must have an assigned turn", 2f));
         }
     }
 
@@ -35,5 +38,15 @@ public class ItemSlotHandler : MonoBehaviour
         }
 
         return turns;
+    }
+
+    private IEnumerator DisplayInfoForSeconds(string info, float duration)
+    {
+        infoText.text = info; // Imposta il testo dell'elemento TextMesh Pro
+        infoText.gameObject.SetActive(true); // Attiva l'elemento TextMesh Pro
+
+        yield return new WaitForSeconds(duration);
+
+        infoText.gameObject.SetActive(false); // Disattiva l'elemento TextMesh Pro dopo 'duration' secondi
     }
 }

@@ -4,15 +4,14 @@ using static GameManager;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveDistance = 1f; // Distanza di movimento del player
+    public float moveDistance = 1f; 
 
     private GameManager gameManager;
-    private int movesRemaining = 3; // Numero di movimenti rimanenti per il turno
+    private int movesRemaining = 3; 
     private Stack<Vector3> previousPositions = new Stack<Vector3>(); // Stack per tenere traccia delle posizioni precedenti
 
     private void Start()
     {
-        // Trova il GameManager nella scena
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -37,14 +36,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 TryMovePlayer(Vector3.right);
             }
-            else if (Input.GetKeyDown(KeyCode.Z)) // Tasto per annullare l'ultima mossa
+            else if (Input.GetKeyDown(KeyCode.Z)) 
             {
                 UndoLastMove();
             }
         }
     }
 
-    // Funzione per tentare di muovere il player nella direzione specificata
     void TryMovePlayer(Vector3 direction)
     {
         // Controlla se ci sono ancora movimenti rimanenti
@@ -58,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             bool canMove = true;
             foreach (var collider in colliders)
             {
-                // Se la nuova posizione è occupata, il player non può muoversi
                 if (collider.gameObject != gameObject)
                 {
                     canMove = false;
@@ -66,10 +63,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            // Se il player può muoversi, esegui il movimento
             if (canMove)
             {
-                // Salva la posizione corrente del player prima di spostarlo
                 previousPositions.Push(transform.position);
 
                 // Sposta il player nella nuova posizione
@@ -81,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Funzione per annullare l'ultima mossa del player
     void UndoLastMove()
     {
         // Controlla se ci sono mosse precedenti da annullare
@@ -96,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void ResetMoves()
     {
-        movesRemaining = 3; // Resetta il numero di movimenti rimanenti
+        movesRemaining = 3;
         previousPositions.Clear();
     }
 }

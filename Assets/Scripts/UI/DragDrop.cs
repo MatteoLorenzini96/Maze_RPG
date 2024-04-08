@@ -7,20 +7,20 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform itemSlot;
-    [SerializeField] private GameObject referenceParent; // GameObject di riferimento
+    [SerializeField] private GameObject referenceParent; 
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 originalPosition;
-    private Transform originalParent; // Memorizza il parente originale
-    private Transform lastDroppedItem; // Memorizza l'ultimo elemento rilasciato
+    private Transform originalParent; 
+    private Transform lastDroppedItem; 
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        originalPosition = rectTransform.localPosition; // Memorizza la posizione locale iniziale
-        originalParent = transform.parent; // Memorizza il parente originale
+        originalPosition = rectTransform.localPosition; 
+        originalParent = transform.parent; 
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -52,19 +52,13 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                 lastDroppedItem.localPosition = originalPosition; // Usa la posizione locale originale
             }
 
-            // Imposta il parentesco dell'elemento allo slot
             rectTransform.SetParent(slotRectTransform, false); // Mantieni la scala dell'elemento
 
             // Posiziona l'elemento al centro dello slot
             rectTransform.anchoredPosition = Vector2.zero;
-
-            // Debug.Log del turnOrder quando un elemento viene lasciato dentro un ItemSlot
-            Debug.Log("Turn Order for " + slotRectTransform.name + ": " + slotRectTransform.GetComponent<ItemSlot>().turnOrder);
-
         }
         else
         {
-            // Se non è stato trovato alcuno slot, ritorna all'origine e torna al parente originale
             rectTransform.SetParent(originalParent, false); // Ripristina il parentesco al parente originale
             rectTransform.localPosition = originalPosition; // Usa la posizione locale originale
         }
@@ -92,7 +86,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             }
         }
 
-        // Se non è stato trovato alcuno slot, restituisci null
         return null;
     }
 }

@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Turn> turns = new List<Turn>();
     [SerializeField] private int actualTurnIndex;
 
-    public Button SaveOrderButton; // Riferimento al bottone da disabilitare
-    public Button PassButton; // Riferimento al bottone da disabilitare
+    public Button SaveOrderButton; // Riferimento al bottone 
+    public Button PassButton; // Riferimento al bottone 
 
     public void NextTurn()
     {

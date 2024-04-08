@@ -12,7 +12,6 @@ public class StartButton : MonoBehaviour
 
     private void Update()
     {
-        // Ottieni il GameManager
         GameManager gameManager = GameManager.Instance;
 
         // Controlla lo stato del gioco e aggiorna il testo di conseguenza

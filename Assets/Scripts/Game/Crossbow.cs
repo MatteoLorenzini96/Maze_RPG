@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Crossbow : MonoBehaviour
 {
-    public float bulletSpeed = 5f; // Velocità del proiettile
-    public GameObject bulletPrefab; // Prefab del proiettile
-    public float bulletLifetime = 3f; // Durata di vita del proiettile
-    public Transform muzzle; // Punto di spawn del proiettile
+    public float bulletSpeed = 5f; 
+    public GameObject bulletPrefab; 
+    public float bulletLifetime = 3f; 
+    public Transform muzzle; 
 
-    private GameObject currentBullet; // Riferimento al proiettile attuale
+    private GameObject currentBullet; 
 
     public void Shoot()
     {
@@ -17,23 +17,19 @@ public class Crossbow : MonoBehaviour
             return;
         }
 
-        currentBullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation); // Crea il proiettile
+        currentBullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation); 
         Rigidbody2D rb = currentBullet.GetComponent<Rigidbody2D>();
-        rb.velocity = muzzle.right.normalized * bulletSpeed; // Imposta la velocità del proiettile in linea retta
-        Destroy(currentBullet, bulletLifetime); // Cancella il proiettile dopo il tempo specificato
+        rb.velocity = muzzle.right.normalized * bulletSpeed; 
+        Destroy(currentBullet, bulletLifetime); 
 
-        // Invoca la funzione NextTurn del GameManager dopo 2 secondi
         Invoke("CallNextTurn", 1f);
     }
 
-    // Metodo per chiamare la funzione NextTurn del GameManager
     private void CallNextTurn()
     {
-        // Assicurati che il GameManager esista nella scena
         GameManager gameManager = FindObjectOfType<GameManager>();
         if (gameManager != null)
         {
-            // Chiama la funzione NextTurn del GameManager
             gameManager.NextTurn();
         }
         else
