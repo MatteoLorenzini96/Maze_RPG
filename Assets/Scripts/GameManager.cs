@@ -26,18 +26,52 @@ public class GameManager : MonoBehaviour
         switch (currentTurn)
         {
             case Turn.EnemyRed:
+                Invoke("NextTurn", 1f);
+                PassButton.interactable = false;
                 Debug.Log("È il turno del nemico rosso.");
-                enemyRedMovement.MoveEnemy();
+                
+                GameObject[] redEnemies = GameObject.FindGameObjectsWithTag("RedWall");
+                foreach (GameObject redEnemyObject in redEnemies)
+                {
+                    if (redEnemyObject.TryGetComponent<RedEnemyMovement>(out var redEnemy))
+                    {
+                        redEnemy.MoveEnemy();
+                        
+                    }
+                }
                 break;
             case Turn.EnemyBlue:
+                Invoke("NextTurn", 1f);
+                PassButton.interactable = false;
                 Debug.Log("È il turno del nemico blu.");
-                enemyBlueMovement.MoveEnemy();
+                
+                GameObject[] blueEnemies = GameObject.FindGameObjectsWithTag("BlueWall");
+                foreach (GameObject blueEnemyObject in blueEnemies)
+                {
+                    if (blueEnemyObject.TryGetComponent<BlueEnemyMovement>(out var blueEnemy))
+                    {
+                        blueEnemy.MoveEnemy();
+                        
+                    }
+                }
                 break;
             case Turn.Crossbow:
+                Invoke("NextTurn", 1f);
+                PassButton.interactable = false;
                 Debug.Log("È il turno della Crossbow.");
-                crossbow.Shoot();
+                
+                GameObject[] crossbows = GameObject.FindGameObjectsWithTag("Crossbow");
+                foreach (GameObject crossbowObject in crossbows)
+                {
+                    if (crossbowObject.TryGetComponent<Crossbow>(out var crossbow))
+                    {
+                        crossbow.Shoot();
+                        
+                    }
+                }
                 break;
             case Turn.Player:
+                PassButton.interactable = true;
                 Debug.Log("È il turno del giocatore.");
                 break;
             case Turn.Planning:

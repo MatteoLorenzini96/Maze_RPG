@@ -29,33 +29,12 @@ public class RedEnemyMovement : MonoBehaviour
         {
             // Se si trova nella posizione iniziale, muovi il nemico di 1 unità a destra rispetto alla sua posizione attuale
             transform.position += Vector3.right * 1;
-
-            Invoke("CallNextTurn", 1f);
+            transform.Rotate(0f, 180f, 0f);
         }
         else
         {
-            // Se non si trova nella posizione iniziale, riporta il nemico alla posizione iniziale
             transform.position = initialPosition;
-        }
-    }
-
-    public void ResetPosition()
-    {
-        transform.position = initialPosition; // Riporta il nemico alla posizione iniziale
-    }
-
-    
-    private void CallNextTurn()
-    {
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        if (gameManager != null)
-        {
-            // Chiama la funzione NextTurn del GameManager
-            gameManager.NextTurn();
-        }
-        else
-        {
-            Debug.LogError("GameManager non trovato nella scena.");
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }

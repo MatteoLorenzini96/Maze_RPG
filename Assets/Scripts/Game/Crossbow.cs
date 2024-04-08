@@ -22,7 +22,7 @@ public class Crossbow : MonoBehaviour
         rb.velocity = muzzle.right.normalized * bulletSpeed; 
         Destroy(currentBullet, bulletLifetime); 
 
-        Invoke("CallNextTurn", 1f);
+        //Invoke("CallNextTurn", 1f);
     }
 
     private void CallNextTurn()

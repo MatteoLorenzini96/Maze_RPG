@@ -16,7 +16,6 @@ public class BlueEnemyMovement : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                // Se il player è nel raggio di collisione, distruggilo e ricarica la scena
                 Destroy(collider.gameObject);
                 UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
                 return;
@@ -30,31 +29,12 @@ public class BlueEnemyMovement : MonoBehaviour
         {
             // Se si trova nella posizione iniziale, muovi il nemico di 1 unità verso l'alto rispetto alla sua posizione attuale
             transform.position += Vector3.up * 1;
-
-            Invoke("CallNextTurn", 1f);
+            transform.Rotate(180f, 0f, 0f);
         }
         else
         {
             transform.position = initialPosition;
-        }
-    }
-
-    public void ResetPosition()
-    {
-        transform.position = initialPosition; 
-    }
-
-    private void CallNextTurn()
-    {
-        // Assicurati che il GameManager esista nella scena
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        if (gameManager != null)
-        {
-            gameManager.NextTurn();
-        }
-        else
-        {
-            Debug.LogError("GameManager non trovato nella scena.");
+            transform.Rotate(180f, 0f, 0f);
         }
     }
 }
