@@ -1680,6 +1680,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6584972203843230910, guid: 95c03af654ff6934e8b377808c469c44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 986c2c65e5dba774ab40d2ac143c9b0b, type: 3}
     - target: {fileID: 8429067949155712881, guid: 95c03af654ff6934e8b377808c469c44, type: 3}
       propertyPath: m_Name
       value: RedWall
