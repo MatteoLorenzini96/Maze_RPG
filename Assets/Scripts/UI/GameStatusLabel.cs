@@ -18,7 +18,7 @@ public class GameStatusLabel : MonoBehaviour
         switch (gameManager.currentTurn)
         {
             case Turn.None:
-                statusText.text = "Planning";
+                statusText.text = "Drag UI";
                 break;
             case Turn.Player:
                 statusText.text = "Player Turn";
