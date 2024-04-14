@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 1
+  destructionEffect: {fileID: 3548588485384254792, guid: 2f9e7dc163581394da1e00b561eed65d, type: 3}
 --- !u!61 &7800297730622140586
 BoxCollider2D:
   m_ObjectHideFlags: 0

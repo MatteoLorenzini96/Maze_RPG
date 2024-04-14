@@ -7,6 +7,7 @@ TagManager:
   - RedWall
   - BlueWall
   - Crossbow
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Bullet
   - Water
   - UI
-  - 
+  - Particle
   - 
   - 
   - 
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particle
+    uniqueID: 2491955113
     locked: 0

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private int movesRemaining = 3; 
     private Stack<Vector3> previousPositions = new Stack<Vector3>(); // Stack per tenere traccia delle posizioni precedenti
 
+    public GameObject destructionEffect; // Riferimento all'effetto particellare da istanziare
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -92,5 +93,13 @@ public class PlayerMovement : MonoBehaviour
     {
         movesRemaining = 3;
         previousPositions.Clear();
+    }
+
+    void OnDestroy()
+    {
+        if (destructionEffect != null)
+        {
+            Instantiate(destructionEffect, transform.position, Quaternion.identity);
+        }
     }
 }

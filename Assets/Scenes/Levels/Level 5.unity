@@ -1385,7 +1385,7 @@ PrefabInstance:
     - target: {fileID: 2265297194104323934, guid: 5a656ac745f9f6c4fa617c240f496a12, type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2067329701}
     - target: {fileID: 2265297194104323934, guid: 5a656ac745f9f6c4fa617c240f496a12, type: 3}
       propertyPath: SaveOrderButton
       value: 
@@ -3359,6 +3359,17 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 7800297730622140586, guid: c1e1025c3caac8f46a5f956b0a1e8ba1, type: 3}
   m_PrefabInstance: {fileID: 2067329699}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2067329701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1698783044658166708, guid: c1e1025c3caac8f46a5f956b0a1e8ba1, type: 3}
+  m_PrefabInstance: {fileID: 2067329699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e637840e78f033141a88d2700df3c9b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2124990130
 GameObject:
   m_ObjectHideFlags: 0
