@@ -99,7 +99,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (destructionEffect != null)
         {
-            Instantiate(destructionEffect, transform.position, Quaternion.identity);
+            // Assicurati che l'effetto di distruzione venga istanziato come figlio di un oggetto vuoto (empty game object)
+            GameObject effectsParent = GameObject.Find("EffectsParent"); // Il nome dell'oggetto vuoto che contiene gli effetti particellari
+            if (effectsParent != null)
+                Instantiate(destructionEffect, transform.position, Quaternion.identity, effectsParent.transform);
+            else
+                Instantiate(destructionEffect, transform.position, Quaternion.identity);
         }
     }
+
 }
