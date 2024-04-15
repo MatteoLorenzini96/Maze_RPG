@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
             Debug.Log("Player Colpito");
             Destroy(collision.gameObject);
 
-            Invoke("ReloadScene", 0.5f);
+            Invoke("ReloadScene", 1f);
         }
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlueEnemyMovement : MonoBehaviour
 {
@@ -17,10 +18,17 @@ public class BlueEnemyMovement : MonoBehaviour
             if (collider.CompareTag("Player"))
             {
                 Destroy(collider.gameObject);
-                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+                Invoke("ReloadScene", 1f); 
                 return;
             }
         }
+    }
+
+    private void ReloadScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     public void MoveEnemy()
