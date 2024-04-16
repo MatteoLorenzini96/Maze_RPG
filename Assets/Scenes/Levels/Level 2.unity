@@ -404,7 +404,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2407,7 +2407,7 @@ PrefabInstance:
     - target: {fileID: 1698783044658166708, guid: c1e1025c3caac8f46a5f956b0a1e8ba1, type: 3}
       propertyPath: destructionEffect
       value: 
-      objectReference: {fileID: 6644961395158154069, guid: fe4e0a4158bb4d3438ae3303a7a83243, type: 3}
+      objectReference: {fileID: 3548588485384254792, guid: 2f9e7dc163581394da1e00b561eed65d, type: 3}
     - target: {fileID: 6764544459145730006, guid: c1e1025c3caac8f46a5f956b0a1e8ba1, type: 3}
       propertyPath: m_Name
       value: Player

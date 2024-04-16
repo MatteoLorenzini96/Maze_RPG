@@ -95,17 +95,19 @@ public class PlayerMovement : MonoBehaviour
         previousPositions.Clear();
     }
 
-    void OnDestroy()
+   void OnDestroy()
+{
+    if (destructionEffect != null)
     {
-        if (destructionEffect != null)
-        {
-            // Assicurati che l'effetto di distruzione venga istanziato come figlio di un oggetto vuoto (empty game object)
-            GameObject effectsParent = GameObject.Find("EffectsParent"); // Il nome dell'oggetto vuoto che contiene gli effetti particellari
-            if (effectsParent != null)
-                Instantiate(destructionEffect, transform.position, Quaternion.identity, effectsParent.transform);
-            else
-                Instantiate(destructionEffect, transform.position, Quaternion.identity);
-        }
+        // Crea un oggetto vuoto come genitore dell'effetto di distruzione
+        GameObject effectsParent = new GameObject("EffectsParent");
+
+        // Istanzia l'effetto di distruzione come figlio dell'oggetto vuoto appena creato
+        Instantiate(destructionEffect, transform.position, Quaternion.identity, effectsParent.transform);
+
+        // Distruggi l'oggetto vuoto (e tutti i suoi figli, incluso l'effetto di distruzione) dopo un certo periodo di tempo
+        Destroy(effectsParent, 1f); // Modifica il tempo di distruzione se necessario
     }
+}
 
 }

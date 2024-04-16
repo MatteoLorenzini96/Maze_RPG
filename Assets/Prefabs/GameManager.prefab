@@ -48,6 +48,8 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   enemyRedMovement: {fileID: 0}
   enemyBlueMovement: {fileID: 0}
-  Crossbow: {fileID: 0}
+  crossbow: {fileID: 0}
   turns: 
   actualTurnIndex: 0
+  SaveOrderButton: {fileID: 0}
+  PassButton: {fileID: 0}
