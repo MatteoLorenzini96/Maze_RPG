@@ -19,6 +19,11 @@ public class DebugManager : MonoBehaviour
         {
             LoadPreviousScene();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGame();
+        }
     }
 
     void ReloadScene()
@@ -43,5 +48,10 @@ public class DebugManager : MonoBehaviour
             previousSceneIndex = SceneManager.sceneCountInBuildSettings - 1;
         }
         SceneManager.LoadScene(previousSceneIndex);
+    }
+
+    void ExitGame()
+    {
+        Application.Quit();
     }
 }
