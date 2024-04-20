@@ -48,5 +48,6 @@ public class ItemSlotHandler : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         infoText.gameObject.SetActive(false); // Disattiva l'elemento TextMesh Pro dopo 'duration' secondi
+        SaveOrderButton.interactable = true;
     }
 }

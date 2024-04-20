@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         {
             case Turn.EnemyRed:
                 Invoke("NextTurn", 1f);
-                PassButton.interactable = false;
+                PassButton.gameObject.SetActive(false);
                 Debug.Log("È il turno del nemico rosso.");
                 
                 GameObject[] redEnemies = GameObject.FindGameObjectsWithTag("RedWall");
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
                 break;
             case Turn.EnemyBlue:
                 Invoke("NextTurn", 1f);
-                PassButton.interactable = false;
+                PassButton.gameObject.SetActive(false);
                 Debug.Log("È il turno del nemico blu.");
                 
                 GameObject[] blueEnemies = GameObject.FindGameObjectsWithTag("BlueWall");
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
                 break;
             case Turn.Crossbow:
                 Invoke("NextTurn", 1f);
-                PassButton.interactable = false;
+                PassButton.gameObject.SetActive(false);
                 Debug.Log("È il turno della Crossbow.");
                 
                 GameObject[] crossbows = GameObject.FindGameObjectsWithTag("Crossbow");
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case Turn.Player:
-                PassButton.interactable = true;
+                PassButton.gameObject.SetActive(true);
                 Debug.Log("È il turno del giocatore.");
                 break;
             case Turn.Planning:
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         currentTurn = Turn.None;
         turns.Clear();
         SaveOrderButton.interactable = true; // Abilita il bottone 
-        PassButton.interactable = false; // Abilita il bottone
+        PassButton.gameObject.SetActive(false);
     }
 
     private void Start()
