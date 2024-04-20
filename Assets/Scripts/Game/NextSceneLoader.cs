@@ -15,9 +15,10 @@ public class NextSceneLoader : MonoBehaviour
 
     private void Update()
     {
-        if (playerCollider.bounds.Contains(transform.position))
+        if (playerCollider != null && playerCollider.isActiveAndEnabled && playerCollider.bounds.Contains(transform.position))
         {
             SceneManager.LoadScene(nextSceneName);
         }
     }
+
 }
