@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 public class BlueEnemyMovement : MonoBehaviour
 {
     private Vector3 initialPosition; 
-    public float collisionRadius = 0.5f; 
+    public float collisionRadius = 0.5f;
+    private PlayerMovement playerMovement;
+
     void Start()
     {
-        initialPosition = transform.position; 
+        initialPosition = transform.position;
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     void Update()
@@ -17,7 +20,7 @@ public class BlueEnemyMovement : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                Destroy(collider.gameObject);
+                playerMovement.Death();
                 Invoke("ReloadScene", 1f); 
                 return;
             }

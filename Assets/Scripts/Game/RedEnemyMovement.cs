@@ -3,11 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class RedEnemyMovement : MonoBehaviour
 {
-    private Vector3 initialPosition; 
+    private Vector3 initialPosition;
     public float collisionRadius = 0.5f;
+    private PlayerMovement playerMovement; 
+
     void Start()
     {
-        initialPosition = transform.position; 
+        initialPosition = transform.position;
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     void Update()
@@ -17,7 +20,7 @@ public class RedEnemyMovement : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                Destroy(collider.gameObject);
+                playerMovement.Death();
                 Invoke("ReloadScene", 1f);
                 return;
             }
@@ -27,7 +30,6 @@ public class RedEnemyMovement : MonoBehaviour
     private void ReloadScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
         SceneManager.LoadScene(currentSceneIndex);
     }
 

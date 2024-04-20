@@ -4,13 +4,14 @@ using static GameManager;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveDistance = 1f; 
+    public float moveDistance = 1f;
 
     private GameManager gameManager;
-    private int movesRemaining = 3; 
+    private int movesRemaining = 3;
     private Stack<Vector3> previousPositions = new Stack<Vector3>(); // Stack per tenere traccia delle posizioni precedenti
 
     public GameObject destructionEffect; // Riferimento all'effetto particellare da istanziare
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 TryMovePlayer(Vector3.right);
             }
-            else if (Input.GetKeyDown(KeyCode.Z)) 
+            else if (Input.GetKeyDown(KeyCode.Z))
             {
                 UndoLastMove();
             }
@@ -89,25 +90,29 @@ public class PlayerMovement : MonoBehaviour
             movesRemaining++;
         }
     }
+
     public void ResetMoves()
     {
         movesRemaining = 3;
         previousPositions.Clear();
     }
 
-   void OnDestroy()
-{
-    if (destructionEffect != null)
+    public void Death()
     {
-        // Crea un oggetto vuoto come genitore dell'effetto di distruzione
-        GameObject effectsParent = new GameObject("EffectsParent");
+        if (destructionEffect != null)
+        {
+            // Crea un oggetto vuoto come genitore dell'effetto di distruzione
+            GameObject effectsParent = new GameObject("EffectsParent");
 
-        // Istanzia l'effetto di distruzione come figlio dell'oggetto vuoto appena creato
-        Instantiate(destructionEffect, transform.position, Quaternion.identity, effectsParent.transform);
+            // Istanzia l'effetto di distruzione come figlio dell'oggetto vuoto appena creato
+            Instantiate(destructionEffect, transform.position, Quaternion.identity, effectsParent.transform);
 
-        // Distruggi l'oggetto vuoto (e tutti i suoi figli, incluso l'effetto di distruzione) dopo un certo periodo di tempo
-        Destroy(effectsParent, 1f); // Modifica il tempo di distruzione se necessario
-    }
+            // Distruggi l'oggetto vuoto (e tutti i suoi figli, incluso l'effetto di distruzione) dopo un certo periodo di tempo
+            Destroy(effectsParent, 1f); // Modifica il tempo di distruzione se necessario
+        }
+
+        // Distruggi l'oggetto
+        Destroy(gameObject);
+    }      
 }
 
-}
