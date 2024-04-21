@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveDistance = 1f;
 
+    public ContaMovimenti contaMovimenti; // Riferimento al componente ContaMovimenti
+
+
     private GameManager gameManager;
     private int movesRemaining = 3;
     private Stack<Vector3> previousPositions = new Stack<Vector3>(); // Stack per tenere traccia delle posizioni precedenti
@@ -67,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
 
             if (canMove)
             {
+                // Chiamata al metodo per aggiornare il conteggio dei movimenti
+                contaMovimenti.AggiornaMovimenti();
+
                 previousPositions.Push(transform.position);
 
                 // Sposta il player nella nuova posizione
@@ -88,8 +94,12 @@ public class PlayerMovement : MonoBehaviour
 
             // Ripristina il numero di movimenti rimanenti
             movesRemaining++;
+
+            // Sottrai uno al numeroTotaleMovimenti
+            contaMovimenti.AggiornaMovimenti(-1);
         }
     }
+
 
     public void ResetMoves()
     {
@@ -115,4 +125,3 @@ public class PlayerMovement : MonoBehaviour
         Destroy(gameObject);
     }      
 }
-

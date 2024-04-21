@@ -1,15 +1,23 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NextSceneLoader : MonoBehaviour
 {
-    public string nextSceneName; 
-    public Collider2D playerCollider; 
+    public GameObject oggettoDaAttivare; // Oggetto da attivare al raggiungimento del player
+    public Collider2D playerCollider;
+    public ContaMovimenti contaMovimenti; // Riferimento al componente ContaMovimenti per interrompere il calcolo dei movimenti
+
+    public Button PassButton;
+
     private void Start()
     {
         if (playerCollider == null)
         {
             Debug.LogError("Player collider not assigned in NextSceneLoader.");
+        }
+        if (contaMovimenti == null)
+        {
+            Debug.LogError("ContaMovimenti not assigned in NextSceneLoader.");
         }
     }
 
@@ -17,8 +25,21 @@ public class NextSceneLoader : MonoBehaviour
     {
         if (playerCollider != null && playerCollider.isActiveAndEnabled && playerCollider.bounds.Contains(transform.position))
         {
-            SceneManager.LoadScene(nextSceneName);
+            // Attiva l'oggetto
+            if (oggettoDaAttivare != null)
+            {
+                PassButton.gameObject.SetActive(false);
+                oggettoDaAttivare.SetActive(true);
+            }
+
+            // Interrompi il calcolo dei movimenti
+            if (contaMovimenti != null)
+            {
+                contaMovimenti.enabled = false;
+            }
+
+            // Disattiva questo script
+            enabled = false;
         }
     }
-
 }
