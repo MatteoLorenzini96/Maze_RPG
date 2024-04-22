@@ -2665,6 +2665,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 220555315503246288, guid: 04cbbfe71dfe4e9459425cc5a7f45b87, type: 3}
+      propertyPath: winEffect
+      value: 
+      objectReference: {fileID: 4938095755617958529, guid: 2e79f16be10fbd14f8d5ef191f8db4aa, type: 3}
+    - target: {fileID: 220555315503246288, guid: 04cbbfe71dfe4e9459425cc5a7f45b87, type: 3}
       propertyPath: PassButton
       value: 
       objectReference: {fileID: 199034787}

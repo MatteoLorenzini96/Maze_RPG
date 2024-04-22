@@ -97,5 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdd8f5d458459240bdb677f3325ed8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 
+  oggettoDaAttivare: {fileID: 0}
   playerCollider: {fileID: 0}
+  contaMovimenti: {fileID: 0}
+  playerMovement: {fileID: 0}
+  PassButton: {fileID: 0}
+  winEffect: {fileID: 4938095755617958529, guid: 2e79f16be10fbd14f8d5ef191f8db4aa, type: 3}

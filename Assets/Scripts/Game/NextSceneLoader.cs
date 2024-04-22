@@ -10,6 +10,8 @@ public class NextSceneLoader : MonoBehaviour
 
     public Button PassButton;
 
+    public GameObject winEffect;
+
     private void Start()
     {
         if (playerCollider == null)
@@ -49,6 +51,17 @@ public class NextSceneLoader : MonoBehaviour
                 playerMovement.enabled = false;
             }
 
+            if (winEffect != null)
+            {
+                // Crea un oggetto vuoto come genitore dell'effetto di distruzione
+                GameObject effectsParent = new GameObject("EffectsParent");
+
+                // Istanzia l'effetto di distruzione come figlio dell'oggetto vuoto appena creato
+                Instantiate(winEffect, transform.position, Quaternion.identity, effectsParent.transform);
+
+                // Distruggi l'oggetto vuoto (e tutti i suoi figli, incluso l'effetto di distruzione) dopo un certo periodo di tempo
+                Destroy(effectsParent, 1f); // Modifica il tempo di distruzione se necessario
+            }
             // Disattiva questo script
             enabled = false;
         }
