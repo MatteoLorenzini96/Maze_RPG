@@ -3836,6 +3836,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 718915997}
     - target: {fileID: 220555315503246288, guid: 04cbbfe71dfe4e9459425cc5a7f45b87, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 718915998}
+    - target: {fileID: 220555315503246288, guid: 04cbbfe71dfe4e9459425cc5a7f45b87, type: 3}
       propertyPath: oggettoDaAttivare
       value: 
       objectReference: {fileID: 1720645848}
