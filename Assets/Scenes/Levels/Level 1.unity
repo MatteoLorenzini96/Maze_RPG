@@ -1172,6 +1172,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5328344861115283434, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.9000244
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328344861115283434, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.7000122
+      objectReference: {fileID: 0}
     - target: {fileID: 5365590883569584937, guid: f5d7ff066cd9e0a4fb7e385bf5ec0312, type: 3}
       propertyPath: slots.Array.size
       value: 1
@@ -1340,10 +1348,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 769305212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.74}
-  m_AnchorMax: {x: 0.5, y: 0.74}
-  m_AnchoredPosition: {x: 16, y: -3.800003}
-  m_SizeDelta: {x: 493.5752, y: 50}
+  m_AnchorMin: {x: 0.77500004, y: 0.49111614}
+  m_AnchorMax: {x: 0.77500004, y: 0.49111614}
+  m_AnchoredPosition: {x: 0.1000061, y: -0.40000153}
+  m_SizeDelta: {x: 253.5473, y: 146.3355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192769541
 MonoBehaviour:
@@ -1365,10 +1373,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use "WASD" to move, "Z" to undo, and claim the Tresure.
+  m_text: 'Use "WASD" to move.
 
-    You have
-    3 moves per turn.'
+    Press "Z" to undo.
+
+
+    You have 3 moves per
+    turn to reach the tresure in the fewest moves possible.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1377,8 +1388,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1402,7 +1413,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1431,7 +1442,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.64385223, y: 0, z: -0.78919226, w: 0}
+  m_margin: {x: 0.64385223, y: 0, z: -0.78919226, w: -0.000017177075}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
